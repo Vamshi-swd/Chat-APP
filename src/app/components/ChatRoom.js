@@ -23,7 +23,7 @@ export default function ChatRoom() {
   const [replyingTo, setReplyingTo] = useState(null);
   const fileInputRef = useRef(null);
 
-  // Listen for messages in real time
+ 
   useEffect(() => {
     const messagesRef = collection(firestore, "messages");
     const q = query(messagesRef, orderBy("createdAt", "asc"));
@@ -37,7 +37,7 @@ export default function ChatRoom() {
     return () => unsubscribe();
   }, [setMessages]);
 
-  // Send a new text message
+  
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!newMessage.trim()) return;
@@ -72,7 +72,7 @@ export default function ChatRoom() {
     setReplyingTo(message);
   };
 
-  // Attachment button click
+  // Attachment button 
   const handleAttachClick = () => {
     fileInputRef.current?.click();
   };
